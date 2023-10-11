@@ -14,16 +14,11 @@ unsigned int is_delim(char c, char *delimiters)
 char *_strtok(char *str, char *delimiters)
 {
     static char *last_of_string;
-    // char *return_of_the_rest;
 
     if (!str)
-    {
         str = last_of_string;
-    }
     if (!str)
-    {
         return (NULL);
-    }
     while (1)
     {
         if (is_delim(*str, delimiters))
@@ -53,4 +48,20 @@ char *_strtok(char *str, char *delimiters)
         }
         str++;
     }
+}
+char **make_arr_of_str(char *str, char *delimiters)
+{
+    int i = 0;
+    char *token;
+    char **arr_of_str = malloc(2024);
+
+    token = _strtok(str, delimiters);
+    while (token != NULL)
+    {
+        arr_of_str[i] = token;
+        token = _strtok(NULL, delimiters);
+            i++;
+    }
+    arr_of_str[i] = NULL;
+    return (arr_of_str);
 }

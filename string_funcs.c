@@ -98,7 +98,7 @@ char *_strcat(char *dest, char *src)
 	int j = 0;
 
     if (!dest)
-        return (NULL);
+        return (src);
     if (!src)
         return (dest);
 	while (dest[i] != '\0')
