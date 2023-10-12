@@ -13,3 +13,5 @@ void is_interactive()
         printf("%s", buff);
         free(buff)
     }
+}
+

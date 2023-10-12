@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include <errno.h>
 #include <sys/types.h>
@@ -25,6 +26,7 @@ void is_non_interactive();
 /*token*/
 unsigned int is_delim(char c, char *delimiters);
 char *_strtok(char *str, char *delimiters);
+char **make_arr_of_str(char *str, char *delimiters);
 
 /*string_funcs*/
 int _strlen(char *s);

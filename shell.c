@@ -7,6 +7,6 @@ int main(int argc, char **argv)
     else if (argc == 1 && isatty(STDIN_FILENO))
         is_interactive();
     else
-        is_non_interactive()
+        is_non_interactive();
     return 0;
 }

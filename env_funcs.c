@@ -23,9 +23,9 @@ char *_get_env(const char *name)
     char *env_copy, *env_val;
     if (!environ[env_indx])
         return (NULL);
-    *env_copy = strdup(environ[env_indx]);
+    env_copy = strdup(environ[env_indx]);
     _strtok(env_copy, "=");
-    *env_val = _strtok(NULL, "=");
+    env_val = _strtok(NULL, "=");
     return (env_val);
 }
 int _set_env(char *key, char *value, int overwrite)
