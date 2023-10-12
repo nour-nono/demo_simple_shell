@@ -53,15 +53,17 @@ char **make_arr_of_str(char *str, char *delimiters)
 {
     int i = 0;
     char *token;
-    char **arr_of_str = malloc(2024);
-
-    token = _strtok(str, delimiters);
+    char **arr_of_str = malloc(sizeof(char *) * 100);
+    char *str_copy = _strdup(str);
+    token = _strtok(str_copy, delimiters);
     while (token != NULL)
     {
-        arr_of_str[i] = token;
+        arr_of_str[i] = malloc(sizeof(char) * _strlen(token) + 1);
+        _strcpy(arr_of_str[i], token);
         token = _strtok(NULL, delimiters);
-            i++;
+        i++;
     }
+    free(str_copy);
     arr_of_str[i] = NULL;
     return (arr_of_str);
 }
