@@ -3,7 +3,7 @@
 char *search_for_command_in_paths(char *command)
 {
     char *path_copy = _get_env("PATH");
-    char all_paths = make_arr_of_str(path_copy, ":");
+    char **all_paths = make_arr_of_str(path_copy, ":");
     char search_in_this_path;
     int i = 0;
 

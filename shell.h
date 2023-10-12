@@ -45,6 +45,6 @@ char *search_for_command_in_paths(char *command);
 void exec_command(char **command_and_argu);
 
 /*free_array*/
-void free_array(char ***arr)
+void free_array(char ***arr);
 
 #endif
