@@ -38,7 +38,10 @@ int _strcmp(const char *s1,const char *s2);
 char *_strdup(char *str);
 
 /*env_funcs*/
-char *_getenv(const char *name);
+int search_for_env(const char *name);
+char *_get_env(const char *name);
+int _set_env(char *key, char *value, int overwrite);
+int _unset_env(char *key);
 
 /*exec_commands*/
 char *search_for_command_in_paths(char *command);
