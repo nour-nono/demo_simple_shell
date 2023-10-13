@@ -13,6 +13,7 @@ int search_for_env(const char *name)
             free(env_copy);
             return (i);
         }
+        free(env_copy);
         ++i;
     }
     return (i);

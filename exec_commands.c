@@ -14,6 +14,7 @@ char *search_for_command_in_paths(char *command)
         _strcat(search_in_this_path, command);
         if (access(search_in_this_path, X_OK) == 0)
             break;
+        free(search_in_this_path);
         ++i;
     }
     i = 0;
