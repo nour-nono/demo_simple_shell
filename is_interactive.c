@@ -15,7 +15,7 @@ void is_interactive()
             exec_command(arr);
         else
             command = search_for_command_in_paths(arr[0]);
-        if (command)
+        if (!command)
             printf("command not found\n");
         else
             exec_command(arr);
