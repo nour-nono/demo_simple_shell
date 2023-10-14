@@ -13,7 +13,6 @@ void is_non_interactive()
         else
         {
             command = search_for_command_in_paths(arr[0]);
-            _strcpy(arr[0],command);
         if (!command)
             perror("");
         else
