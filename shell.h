@@ -45,7 +45,7 @@ int _unset_env(char *key);
 
 /*exec_commands*/
 char *search_for_command_in_paths(char *command);
-void exec_command(char **command_and_argu);
+void exec_command(char *command, char **command_and_argu);
 
 /*free_array*/
 void free_array(char ***arr);
