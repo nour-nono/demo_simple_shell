@@ -12,7 +12,7 @@ char *search_for_command_in_paths(char *command)
     char **all_paths = make_arr_of_str(path_copy, ":\n\t");
     char *search_in_this_path = NULL;
     free(path_copy);
-    int i = 0;
+    int i = 0,flag = 0;
 
     while (all_paths[i])
     {
@@ -21,13 +21,13 @@ char *search_for_command_in_paths(char *command)
         _strcat(search_in_this_path, "/");
         _strcat(search_in_this_path, command);
         if (search_in_this_path && access(search_in_this_path, F_OK|X_OK) == 0)
-            break;
+            {flag = 1;break;}
         free(search_in_this_path);
         ++i;
     }
     i = 0;
     free_array(&all_paths);
-    if (search_in_this_path && access(search_in_this_path, F_OK|X_OK) == 0)
+    if (flag)
         return (search_in_this_path);
     else
         return (NULL);
