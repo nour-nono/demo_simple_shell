@@ -1,13 +1,19 @@
 #include "shell.h"
 
+/**
+ * search_for_env - copy string in heap
+ * @name: string
+ *
+ * Return: string.
+ */
 int search_for_env(const char *name)
 {
     int i = 0;
+    char *env_copy = NULL, *token = NULL;
 
     while (environ[i])
     {
-        char *env_copy = strdup(environ[i]);
-        char *token = _strtok(env_copy, "=");
+        *env_copy = strdup(environ[i]), *token = _strtok(env_copy, "=");
         if (_strcmp(token, name))
         {
             free(env_copy);
@@ -18,10 +24,17 @@ int search_for_env(const char *name)
     }
     return (i);
 }
+
+/**
+ * _get_env - copy string in heap
+ * @name: string
+ *
+ * Return: string.
+ */
 char *_get_env(const char *name)
 {
     int env_indx = search_for_env(name);
-    char *env_copy, *env_val;
+    char *env_copy = NULL, *env_val = NULL;
     if (!environ[env_indx])
         return (NULL);
     env_copy = strdup(environ[env_indx]);
@@ -30,9 +43,18 @@ char *_get_env(const char *name)
     free(env_copy);
     return (env_val);
 }
+
+/**
+ * _set_env - copy string in heap
+ * @key: string
+ * @value: string
+ * @overwrite: string
+ *
+ * Return: string.
+ */
 int _set_env(char *key, char *value, int overwrite)
 {
-    char *new_env;
+    char *new_env = NULL;
     int env_indx = search_for_env(key);
 
     if (environ[env_indx])
@@ -52,6 +74,13 @@ int _set_env(char *key, char *value, int overwrite)
     }
     return (0);
 }
+
+/**
+ * _unset_env - copy string in heap
+ * @key: string
+ *
+ * Return: string.
+ */
 int _unset_env(char *key)
 {
     int env_indx = search_for_env(key);

@@ -1,16 +1,23 @@
 #include "shell.h"
 
+/**
+ *  is_interactive - Entry point
+ *
+ * Description: this program prints "_putchar"
+ *
+ * Return: Always 0 (Success)
+*/
 void is_interactive()
 {
     char *prompt = "($) ";
     while (1)
     {
-        char *buff = NULL, *command = NULL;
+        char *buff = NULL, *command = NULL, **arr = NULL;
         ssize_t sz = 0, i = 0;
         printf("%s", prompt);
         if (getline(&buff, &sz, stdin) == -1)
             free(buff), exit(0);
-        char **arr = make_arr_of_str(buff, " \n\t");
+        **arr = make_arr_of_str(buff, " \n\t");
         if (arr[0] && access(arr[0], F_OK|X_OK) == 0)
             exec_command(arr[0],arr);
         else
