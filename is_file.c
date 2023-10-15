@@ -9,6 +9,7 @@
 */
 void is_file(char *filename)
 {
-    int fd = open(filename, O_RDONLY);
-    //getline()
+	int fd = open(filename, O_RDONLY);
+
+	close(fd);
 }

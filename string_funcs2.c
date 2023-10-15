@@ -18,10 +18,10 @@ char *_strncat(char *dest, char *src, int n)
 	int i = 0;
 	int j = 0;
 
-    if (!dest)
-        return (NULL);
-    if (!src)
-        return (dest);
+	if (!dest)
+		return (NULL);
+	if (!src)
+		return (dest);
 	while (dest[i] != '\0')
 		++i;
 	while (src[j] != '\0' && n--)
@@ -44,21 +44,21 @@ char *_strncat(char *dest, char *src, int n)
  *
  * Return: Always 0 (Success)
  */
-int _strcmp(const char *s1,const char *s2)
+int _strcmp(const char *s1, const char *s2)
 {
-    int ans = 1, i = 0;
+	int ans = 1, i = 0;
 
-    if (!s1 || !s2)
-        return (0);
-    while (s1[i])
-    {
-        if (s1[i] != s2[i])
-        {
-            ans = 0;
-            break;
-        }
-        ++i;
-    }
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+		{
+			ans = 0;
+			break;
+		}
+		++i;
+	}
 	return (ans);
 }
 /**

@@ -15,13 +15,13 @@
 extern char **environ;
 
 /*is_file*/
-void is_file();
+void is_file(char *filename);
 
 /*is_interactive*/
-void is_interactive();
+void is_interactive(void);
 
 /*is_non_interactive*/
-void is_non_interactive();
+void is_non_interactive(void);
 
 /*token*/
 unsigned int is_delim(char c, char *delimiters);
@@ -34,7 +34,7 @@ char *_strcpy(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
-int _strcmp(const char *s1,const char *s2);
+int _strcmp(const char *s1, const char *s2);
 char *_strdup(char *str);
 
 /*env_funcs*/
@@ -51,3 +51,4 @@ void exec_command(char *command, char **command_and_argu);
 void free_array(char ***arr);
 
 #endif
+
