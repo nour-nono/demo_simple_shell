@@ -54,7 +54,7 @@ void free_array(char **arr);
 
 /*implemented funcs*/
 void remove_comment(char *str);
-void is_exit(char ***arr);
+void is_exit(char **arr);
 
 #endif
 
