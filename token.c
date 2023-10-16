@@ -87,4 +87,22 @@ char **make_arr_of_str(char *str, char *delimiters)
 	arr_of_str[i] = NULL;
 	return (arr_of_str);
 }
-
+//
+void remove_comment(char *str)
+{
+    int i = 0;
+    if (!(str))
+        return;
+    while ((str)[i] != '\0')
+    {
+        if ((str)[i] == '#')
+        {
+            if (i == 0 || (str)[i - 1] == ' ')
+            {
+                (str)[i] = '\0';
+                break;	
+            }
+        }
+        i++;
+    }
+}
