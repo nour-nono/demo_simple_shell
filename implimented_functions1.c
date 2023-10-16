@@ -8,14 +8,14 @@
 void print_env(void)
 {
   int i = 0;
-  char c = '\n';
+	char c = '\n';
 
-  while (*(environ + i) != NULL)
-  {
-    write(1, *(environ + i), strlen(*(environ + i)));
-    write(1, &c, 1);
-    i++;
-  }
+	while (*(environ + i) != NULL)
+	{
+		write(1, *(environ + i), strlen(*(environ + i)));
+		write(1, &c, 1);
+		i++;
+	}
 }
 /**
  * is_exit - out if is exit
@@ -29,9 +29,9 @@ void print_env(void)
 
 void is_exit(char ***arr)
 {
-  int i = 0;
-  
-  i = atoi((*arr)[1]);
-  free_array(&arr);
-  exit(i);
+	int i = 0;
+		
+	i = atoi((*arr)[1]);
+	free_array(&arr);
+	exit(i);
 }
