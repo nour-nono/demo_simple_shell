@@ -87,10 +87,17 @@ char **make_arr_of_str(char *str, char *delimiters)
 	arr_of_str[i] = NULL;
 	return (arr_of_str);
 }
-//
+
+/**
+ * remove_comment - copy string in heap
+ * @str: string
+ *
+ * Return: string.
+ */
 void remove_comment(char *str)
 {
 	int i = 0;
+
 	if (!(str))
 		return;
 	while ((str)[i] != '\0')
@@ -100,7 +107,7 @@ void remove_comment(char *str)
 			if (i == 0 || (str)[i - 1] == ' ')
 			{
 				(str)[i] = '\0';
-				break;	
+				break;
 			}
 		}
 		i++;

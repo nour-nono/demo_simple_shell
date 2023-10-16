@@ -7,7 +7,7 @@
  */
 void print_env(void)
 {
-  int i = 0;
+	int i = 0;
 	char c = '\n';
 
 	while (*(environ + i) != NULL)
@@ -30,7 +30,7 @@ void print_env(void)
 void is_exit(char ***arr)
 {
 	int i = 0;
-		
+
 	i = atoi((*arr)[1]);
 	free_array(&arr);
 	exit(i);
