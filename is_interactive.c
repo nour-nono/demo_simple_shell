@@ -14,11 +14,12 @@ void is_interactive(void)
 	while (1)
 	{
 		char *buff = NULL, *command = NULL, **arr = NULL;
-		ssize_t sz = 0, i = 0;
+		size_t sz = 0;
 
 		write(1, prompt, 4);
 		if (getline(&buff, &sz, stdin) == -1)
 			free(buff), exit(0);
+		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
 		free(buff);
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)

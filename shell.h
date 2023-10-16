@@ -27,6 +27,7 @@ void is_non_interactive(void);
 unsigned int is_delim(char c, char *delimiters);
 char *_strtok(char *str, char *delimiters);
 char **make_arr_of_str(char *str, char *delimiters);
+void remove_comment(char *str);
 
 /*string_funcs*/
 int _strlen(char *s);
@@ -49,6 +50,10 @@ void exec_command(char *command, char **command_and_argu);
 
 /*free_array*/
 void free_array(char ***arr);
+
+/*implemented funcs*/
+void remove_comment(char *str);
+void is_exit(char ***arr);
 
 #endif
 

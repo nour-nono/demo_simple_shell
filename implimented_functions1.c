@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * print_env - print environment
  *
@@ -32,6 +34,6 @@ void is_exit(char ***arr)
 	int i = 0;
 
 	i = atoi((*arr)[1]);
-	free_array(&arr);
+	free_array(&(*arr));
 	exit(i);
 }
