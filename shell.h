@@ -37,6 +37,7 @@ char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 int _strcmp(const char *s1, const char *s2);
 char *_strdup(char *str);
+int _atoi(char *s);
 
 /*env_funcs*/
 int search_for_env(const char *name);
@@ -49,7 +50,7 @@ char *search_for_command_in_paths(char *command);
 void exec_command(char *command, char **command_and_argu);
 
 /*free_array*/
-void free_array(char ***arr);
+void free_array(char **arr);
 
 /*implemented funcs*/
 void remove_comment(char *str);

@@ -33,6 +33,6 @@ void is_interactive(void)
 				exec_command(command, arr);
 		}
 		free(command);
-		free_array(&arr);
+		free_array(arr);
 	}
 }

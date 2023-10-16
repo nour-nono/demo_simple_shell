@@ -27,7 +27,7 @@ void is_non_interactive(void)
 			else
 				exec_command(command, arr);
 		}
-		free_array(&arr);
+		free_array(arr);
 		free(command);
 	}
 }

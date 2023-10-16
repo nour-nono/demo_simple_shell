@@ -29,11 +29,11 @@ void print_env(void)
  * Return: nothing
  */
 
-void is_exit(char ***arr)
+void is_exit(char **arr)
 {
 	int i = 0;
 
-	i = atoi((*arr)[1]);
-	free_array(&(*arr));
+	i = _atoi(arr[1]);
+	free_array(arr);
 	exit(i);
 }

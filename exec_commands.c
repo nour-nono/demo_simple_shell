@@ -28,7 +28,7 @@ char *search_for_command_in_paths(char *command)
 		++i;
 	}
 	i = 0;
-	free_array(&all_paths);
+	free_array(all_paths);
 	if (flag)
 		return (search_in_this_path);
 	else
