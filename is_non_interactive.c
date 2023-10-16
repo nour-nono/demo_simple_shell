@@ -16,6 +16,7 @@ void is_non_interactive(void)
 	{
 		arr = make_arr_of_str(buff, " \n\t");
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
+		free(buff);
 			exec_command(arr[0], arr);
 		else
 		{
@@ -28,6 +29,5 @@ void is_non_interactive(void)
 		free_array(&arr);
 		free(command);
 	}
-	free(buff);
 }
 

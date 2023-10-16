@@ -20,6 +20,7 @@ void is_interactive(void)
 		if (getline(&buff, &sz, stdin) == -1)
 			free(buff), exit(0);
 		arr = make_arr_of_str(buff, " \n\t");
+		free(buff);
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 			exec_command(arr[0], arr);
 		else
@@ -32,6 +33,5 @@ void is_interactive(void)
 		}
 		free(command);
 		free_array(&arr);
-		free(buff);
 	}
 }
