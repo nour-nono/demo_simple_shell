@@ -24,7 +24,8 @@ int _pow(int a, int b)
 /**
  * printInteger - function that print integer if %d or %i found
  *
- * @argu : the number to be printed
+ * @arr: the number to be printed
+ * @zz : the number to be printed
  *
  * Return: Nothing
  */
@@ -53,6 +54,7 @@ void int_to_string(char arr[], int zz)
  * show_error - function that print integer if %d or %i found
  *
  * @program_name : the number to be printed
+ * @i : the number to be printed
  * @buff : the number to be printed
  * Return: Nothing
  */
