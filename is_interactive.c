@@ -11,6 +11,7 @@ void is_interactive(char *program_name)
 {
 	char *prompt = "$ ";
 	int i = 1;
+
 	while (1)
 	{
 		char *buff = NULL, *command = NULL, **arr = NULL;

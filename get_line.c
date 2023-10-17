@@ -15,6 +15,7 @@ ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1)
 	static char buffer[8192];
 	static int sz = 0, i = 0, flag = 1;
 	size_t j = 0;
+
 	if (flag1)
 		i = 0;
 	if (flag1 || flag)

@@ -13,7 +13,7 @@ void is_file(char *program_name, char *filename)
 	char *buff = NULL, *command = NULL, **arr = NULL;
 	size_t sz = 0;
 
-	if(fd == -1)
+	if (fd == -1)
 	{
 		perror("");
 		exit(127);

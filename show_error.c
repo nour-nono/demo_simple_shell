@@ -44,7 +44,7 @@ void int_to_string(char arr[], int zz)
 		else
 			c = (a % 10) + '0';
 		arr[j] = c;
-		i--,++j;
+		i--, ++j;
 	}
 	arr[j] = '\0';
 }
@@ -56,12 +56,12 @@ void int_to_string(char arr[], int zz)
  * @buff : the number to be printed
  * Return: Nothing
  */
-void show_error(char *program_name,int i,char *buff)
+void show_error(char *program_name, int i, char *buff)
 {
 	char *out_put = NULL, arr[11], *token = _strtok(buff, "\n");
 	int size = _strlen(program_name) + _strlen(buff) + 17;
 
-	int_to_string(arr,i);
+	int_to_string(arr, i);
 	size += _strlen(arr);
 	out_put = (char *)malloc(sizeof(char) * size);
 	out_put = _strcpy(out_put, program_name);
