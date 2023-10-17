@@ -56,5 +56,12 @@ void free_array(char **arr);
 void remove_comment(char *str);
 void is_exit(char **arr);
 
+/*get_line*/
+ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1);
+
+/*show_error*/
+int _pow(int a, int b);
+void int_to_string(char arr[], int zz);
+void show_error(char *program_name,int i,char *buff);
 #endif
 

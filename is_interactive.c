@@ -9,30 +9,31 @@
 */
 void is_interactive(void)
 {
-	char *prompt = "($) ";
-
+	char *prompt = "$ ";
+	int i = 1;
 	while (1)
 	{
 		char *buff = NULL, *command = NULL, **arr = NULL;
 		size_t sz = 0;
 
-		write(1, prompt, 4);
-		if (getline(&buff, &sz, stdin) == -1)
+		write(1, prompt, 2);
+		if (get_line(&buff, &sz, STDIN_FILENO, 1) == -1)
 			free(buff), exit(0);
 		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
-		free(buff);
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 			exec_command(arr[0], arr);
 		else
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
-				printf("command not found\n");
+				show_error(program_name, i, buff);
 			else
 				exec_command(command, arr);
 		}
+		free(buff);
 		free(command);
 		free_array(arr);
+		++i;
 	}
 }
