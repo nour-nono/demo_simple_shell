@@ -15,13 +15,13 @@
 extern char **environ;
 
 /*is_file*/
-void is_file(char *filename);
+void is_file(char *program_name, char *filename);
 
 /*is_interactive*/
-void is_interactive(void);
+void is_interactive(char *program_name);
 
 /*is_non_interactive*/
-void is_non_interactive(void);
+void is_non_interactive(char *program_name);
 
 /*token*/
 unsigned int is_delim(char c, char *delimiters);

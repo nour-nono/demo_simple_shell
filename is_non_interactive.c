@@ -7,7 +7,7 @@
  *
  * Return: Always 0 (Success)
 */
-void is_non_interactive(void)
+void is_non_interactive(char *program_name)
 {
 	int i = 1;
 	char *buff = NULL, *command = NULL, **arr = NULL;

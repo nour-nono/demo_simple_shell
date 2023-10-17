@@ -7,7 +7,7 @@
  *
  * Return: Always 0 (Success)
 */
-void is_interactive(void)
+void is_interactive(char *program_name)
 {
 	char *prompt = "$ ";
 	int i = 1;

@@ -7,7 +7,7 @@
  *
  * Return: Always 0 (Success)
 */
-void is_file(char *filename)
+void is_file(char *program_name, char *filename)
 {
 	int fd = open(filename, O_RDONLY), i = 1;
 	char *buff = NULL, *command = NULL, **arr = NULL;
