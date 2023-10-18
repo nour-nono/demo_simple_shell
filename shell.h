@@ -51,6 +51,7 @@ void exec_command(char *command, char **command_and_argu, int *status);
 
 /*free_array*/
 void free_array(char **arr);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /*implemented funcs*/
 void remove_comment(char *str);
