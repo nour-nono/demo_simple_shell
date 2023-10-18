@@ -29,7 +29,7 @@ int _pow(int a, int b)
  *
  * Return: Nothing
  */
-void int_to_string(char arr[], int zz)
+void int_to_string(char *arr, int zz)
 {
 	int num = zz, x, i = 0, a = 0, is_negative = 0, j = 0;
 	char c;
@@ -60,11 +60,16 @@ void int_to_string(char arr[], int zz)
  *
  * Return: Nothing
  */
-void show_error(char *program_name,int i,char *buff, char *err)
+void show_error(char *program_name, int i, char *buff, char *err)
 {
-	char *out_put = NULL, arr[11], *token = _strtok(buff, " \n\t");
+	char *out_put = NULL, *arr = NULL, *token = _strtok(buff, " \n\t");
 	int size = _strlen(program_name) + _strlen(buff) + 7;
 
+	arr = (char *)malloc(sizeof(char) * 16);
+	if (arr == NULL)
+    {
+        /* code */
+    }
 	int_to_string(arr, i);
 	size += _strlen(arr) + _strlen(err);
 	out_put = (char *)malloc(sizeof(char) * size);
@@ -77,4 +82,5 @@ void show_error(char *program_name,int i,char *buff, char *err)
 	out_put = _strcat(out_put, err);
 	write(2, out_put, size);
 	free(out_put);
+	free(arr);
 }
