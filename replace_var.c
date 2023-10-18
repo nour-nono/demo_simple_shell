@@ -29,7 +29,7 @@ void change_to_status(char *arr_str, int status)
     {
         /* code */
     }
-    while (arr_str[i] != NULL)
+    while (arr_str[i] != '\0')
         the_rest_of_str[j++] = arr_str[i++];
     the_rest_of_str[j] = '\0';
     int_to_string(status_str, status);
@@ -52,7 +52,7 @@ void change_to_pid(char *arr_str)
     {
         /* code */
     }
-    while (arr_str[i] != NULL)
+    while (arr_str[i] != '\0')
         the_rest_of_str[j++] = arr_str[i++];
     the_rest_of_str[j] = '\0';
     int_to_string(pid_str, pid_num);
@@ -74,7 +74,7 @@ void change_to_env_var(char *arr_str)
     {
         /* code */
     }
-    while (arr_str[i] != NULL)
+    while (arr_str[i] != '\0')
         the_rest_of_str[j++] = arr_str[i++];
     the_rest_of_str[j] = '\0';
     env_str = _get_env(the_rest_of_str);
