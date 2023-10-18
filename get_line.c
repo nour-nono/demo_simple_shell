@@ -30,13 +30,19 @@ ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1)
 	if (buffer[i] == '\0')
 		return (-1);
 	if (!(*lineptr))
-		(*lineptr) = malloc(sizeof(char) * 1000);
-	while (buffer[i] != '\0' && buffer[i] != '\n')
-	{
-		(*lineptr)[j++] = buffer[i++];
-	}
-	while (buffer[i] == '\n' || buffer[i] == ' ' || buffer[i] == '\t')
-		++i;
+		(*lineptr) = malloc(sizeof(char) * 1024);
+    while (buffer[i] != '\0' && buffer[i] != '\n' && j < 1024)
+    {
+        if(buffer[i] == '\n' || buffer[i] == ' ' || buffer[i] == '\t')
+        {
+            if(buffer[i+1] == '\n' || buffer[i+1] == ' ' || buffer[i+1] == '\t')
+                {
+                    ++i;
+                    continue;
+                }
+        }
+        (*lineptr)[j++] = buffer[i++];
+    }
 	(*lineptr) = realloc((*lineptr), j + 1);
 	(*lineptr)[j] = '\0';
 	if (buffer[i] == '\0')
