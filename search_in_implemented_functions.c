@@ -1,6 +1,20 @@
 #include "shell.h"
-
-int search_in_implemented_functions(char **arr, int *status, int i, char *program_name)
+/**
+ * search_in_implemented - Entry point
+ *
+ * @arr: is a pointer to arr of int
+ *
+ * @status: nums
+ *
+ * @i: is a pointer to arr of int
+ *
+ * @program_name: is a pointer to arr of int
+ *
+ * Description: this program prints "_putchar"
+ *
+ * Return: Always 0 (Success)
+ */
+int search_in_implemented(char **arr, int *status, int i, char *program_name)
 {
 	int flag = 1;
 

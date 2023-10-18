@@ -72,7 +72,7 @@ char *change_to_pid(char *arr_str);
 char *change_to_env_var(char *arr_str);
 
 /*search_in_implemented_functions*/
-int search_in_implemented_functions(char **arr, int *status, int i, char *program_name);
+int search_in_implemented(char **arr, int *status, int i, char *program_name);
 
 #endif
 

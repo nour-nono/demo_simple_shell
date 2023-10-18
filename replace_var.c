@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * replace_var - check the code
+ *
+ * @arr: bla bla
+ * @status: bla bla
+ *
+ * Return: Always 0.
+ */
 char **replace_var(char **arr, int status)
 {
 	int i = 0;
@@ -19,7 +27,14 @@ char **replace_var(char **arr, int status)
 	}
 	return (arr);
 }
-
+/**
+ * change_to_status - check the code
+ *
+ * @arr_str: bla bla
+ * @status: bla bla
+ *
+ * Return: Always 0.
+ */
 char *change_to_status(char *arr_str, int status)
 {
 	int i = 2, j = 0;
@@ -44,6 +59,13 @@ char *change_to_status(char *arr_str, int status)
 	free(the_rest_of_str);
 	return (arr_str);
 }
+/**
+ * change_to_pid - check the code
+ *
+ * @arr_str: bla bla
+ *
+ * Return: Always 0.
+ */
 char *change_to_pid(char *arr_str)
 {
 	int i = 2, j = 0, pid_num = getpid();
@@ -68,6 +90,13 @@ char *change_to_pid(char *arr_str)
 	free(the_rest_of_str);
 	return (arr_str);
 }
+/**
+ * change_to_env_var - check the code
+ *
+ * @arr_str: bla bla
+ *
+ * Return: Always 0.
+ */
 char *change_to_env_var(char *arr_str)
 {
 	int i = 1, j = 0;

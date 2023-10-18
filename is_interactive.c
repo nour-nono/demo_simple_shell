@@ -23,7 +23,7 @@ void is_interactive(char *program_name)
 		arr = make_arr_of_str(buff, " \n\t");
 		arr = replace_var(arr, status);
 		free(buff);
-		if (search_in_implemented_functions(arr, &status, i, program_name))
+		if (search_in_implemented(arr, &status, i, program_name))
 		{
 			if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 				exec_command(arr[0], arr, &status);

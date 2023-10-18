@@ -22,10 +22,10 @@ int _pow(int a, int b)
 }
 
 /**
- * printInteger - function that print integer if %d or %i found
+ * int_to_string - function that print integer if %d or %i found
  *
  * @arr: the number to be printed
- * @zz : the number to be printed
+ * @zz: the number to be printed
  *
  * Return: Nothing
  */
@@ -55,7 +55,7 @@ void int_to_string(char *arr, int zz)
  *
  * @program_name : the number to be printed
  * @i : the number to be printed
- * @buff : the number to be printed
+ * @command : the number to be printed
  * @err : the number to be printed
  *
  * Return: Nothing
