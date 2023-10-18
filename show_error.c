@@ -62,11 +62,11 @@ void int_to_string(char arr[], int zz)
  */
 void show_error(char *program_name,int i,char *buff, char *err)
 {
-	char *out_put = NULL, arr[11], *token = _strtok(buff, "\n");
-	int size = _strlen(program_name) + _strlen(buff) + 17;
+	char *out_put = NULL, arr[11], *token = _strtok(buff, " \n\t");
+	int size = _strlen(program_name) + _strlen(buff) + 7;
 
 	int_to_string(arr, i);
-	size += _strlen(arr);
+	size += _strlen(arr) + _strlen(err);
 	out_put = (char *)malloc(sizeof(char) * size);
 	out_put = _strcpy(out_put, program_name);
 	out_put = _strcat(out_put, ": ");
@@ -74,7 +74,7 @@ void show_error(char *program_name,int i,char *buff, char *err)
 	out_put = _strcat(out_put, ": ");
 	out_put = _strcat(out_put, token);
 	out_put = _strcat(out_put, ": ");
-	out_put = _strcat(out_put, "not found\n");
+	out_put = _strcat(out_put, err);
 	write(2, out_put, size);
 	free(out_put);
 }
