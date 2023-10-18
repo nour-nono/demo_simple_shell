@@ -13,24 +13,28 @@
 
 void *_realloc(void *potr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
+	char *pt;
 
 	if (!potr)
 		return (malloc(new_size));
 	if (!new_size)
 		return (free(potr), NULL);
 	if (new_size == old_size)
+	{
 		return (potr);
+	}
 
-	p = malloc(new_size);
-	if (!p)
+	pt = malloc(new_size);
+	if (!pt)
+	{
 		return (NULL);
+	}
 
 	old_size = (old_size < new_size) ? old_size : new_size;
 	while (old_size--)
-		p[old_size] = ((char *)potr)[old_size];
+		pt[old_size] = ((char *)potr)[old_size];
 	free(potr);
-	return (p);
+	return (pt);
 }
 
 /**
