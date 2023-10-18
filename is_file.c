@@ -32,7 +32,7 @@ void is_file(char *program_name, char *filename)
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
-				show_error(program_name, i, buff, "not found\n");
+				show_error(program_name, i, buff, "not found");
 			else
 				exec_command(command, arr);
 		}
