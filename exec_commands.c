@@ -51,7 +51,10 @@ void exec_command(char *command, char **command_and_argu, int *status)
 	else if (child_id == 0)
 	{
 		if (execve(command, command_and_argu, NULL) == -1)
+		{
 			perror("");
+			exit(2);
+		}
 	}
 	else if (child_id > 0)
 	{

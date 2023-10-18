@@ -29,15 +29,31 @@ void print_env(void)
  * Return: nothing
  */
 
-void is_exit(char **arr, int status)
+void is_exit(char **arr, int status, int i, char *program_name)
 {
-	int i = 0;
+	int j = -1;
+	char *error = NULL;
 
 	if (arr == NULL || arr[1] == NULL)
 	{
 		exit(status);
 	}
-	i = _atoi(arr[1]);
-	free_array(arr);
-	exit(i);
+	j = _atoi(arr[1]);
+	if (j >= 0)
+	{
+		free_array(arr);
+		exit(j);
+	}
+	else
+	{
+		error = malloc(sizeof(char) * 1024);
+		_strcpy(error, "Illegal number");
+		_strcat(error, ": ");
+		_strcat(error, arr[1]);
+		_strcat(error, "\n");
+		show_error(program_name, i, arr[0], error);
+		free(error);
+		free_array(arr);
+		exit(2);
+	}
 }

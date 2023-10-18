@@ -27,7 +27,8 @@ void is_file(char *program_name, char *filename)
 		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
 		arr = replace_var(arr, status);
-		if (search_in_implemented_functions(arr, &status))
+		free(buff);
+		if (search_in_implemented_functions(arr, &status, i, program_name))
 		{
 			if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 				exec_command(arr[0], arr, &status);
@@ -42,12 +43,11 @@ void is_file(char *program_name, char *filename)
 				else
 					exec_command(command, arr, &status);
 			}
-			free(buff);
 			free_array(arr);
 			free(command);
 			++i, buff = NULL, command = NULL, arr = NULL, sz = 0;
 		}
 	}
 	close(fd);
-	is_exit(NULL, status);
+	is_exit(NULL, status, i, program_name);
 }

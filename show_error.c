@@ -60,10 +60,10 @@ void int_to_string(char *arr, int zz)
  *
  * Return: Nothing
  */
-void show_error(char *program_name, int i, char *buff, char *err)
+void show_error(char *program_name, int i, char *command, char *err)
 {
-	char *out_put = NULL, *arr = NULL, *token = _strtok(buff, " \n\t");
-	int size = _strlen(program_name) + _strlen(buff) + 7;
+	char *out_put = NULL, *arr = NULL, *token = _strtok(command, " \n\t");
+	int size = _strlen(program_name) + _strlen(command) + 7;
 
 	arr = (char *)malloc(sizeof(char) * 16);
 	if (arr == NULL)
