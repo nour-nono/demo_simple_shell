@@ -33,7 +33,7 @@ void is_exit(char **arr, int status)
 {
 	int i = 0;
 
-	if(arr == NULL)
+	if (arr == NULL || arr[1] == NULL)
 	{
 		exit(status);
 	}

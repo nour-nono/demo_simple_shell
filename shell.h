@@ -42,7 +42,7 @@ int _atoi(char *s);
 /*env_funcs*/
 int search_for_env(const char *name);
 char *_get_env(const char *name);
-int _set_env(char *key, char *value, int overwrite);
+int _set_env(char **arr, int overwrite);
 int _unset_env(char *key);
 
 /*exec_commands*/
@@ -54,6 +54,7 @@ void free_array(char **arr);
 
 /*implemented funcs*/
 void remove_comment(char *str);
+void print_env(void);
 void is_exit(char **arr, int status);
 
 /*get_line*/
@@ -70,6 +71,8 @@ char *change_to_status(char *arr_str, int status);
 char *change_to_pid(char *arr_str);
 char *change_to_env_var(char *arr_str);
 
+/*search_in_implemented_functions*/
+int search_in_implemented_functions(char **arr, int *status);
 
 #endif
 

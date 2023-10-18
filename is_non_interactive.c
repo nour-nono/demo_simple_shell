@@ -18,6 +18,8 @@ void is_non_interactive(char *program_name)
 		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
 		arr = replace_var(arr, status);
+		if (search_in_implemented_functions(arr, &status))
+		{
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 			exec_command(arr[0], arr, &status);
 		else
@@ -36,6 +38,7 @@ void is_non_interactive(char *program_name)
 		free(command);
 		++i;
 		buff = NULL, command = NULL, arr = NULL, sz = 0;
+		}
 	}
 	is_exit(NULL, status);
 }

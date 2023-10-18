@@ -53,25 +53,33 @@ char *_get_env(const char *name)
  *
  * Return: string.
  */
-int _set_env(char *key, char *value, int overwrite)
+int _set_env(char **arr, int overwrite)
 {
-	char *new_env = NULL;
+	char *new_env = NULL, *key = NULL, *value = NULL;
 	int env_indx = search_for_env(key);
 
+	key = arr[1];
+	if (key == NULL)
+		return (-1);
+	value = arr[2];
+	if (value == NULL)
+		return (-1);
 	if (environ[env_indx])
 	{
 		if (overwrite)
 		{
 			new_env = malloc(_strlen(key) + _strlen(value) + 2);
 			_strcpy(new_env, key), _strcat(new_env, "="), _strcat(new_env, value);
-			environ[env_indx] = new_env;
+			_strcpy(environ[env_indx], new_env);
+			free(new_env);
 		}
 	}
 	else
 	{
 		new_env = malloc(_strlen(key) + _strlen(value) + 2);
 		_strcpy(new_env, key), _strcat(new_env, "="), _strcat(new_env, value);
-		environ[env_indx] = new_env;
+		_strcpy(environ[env_indx], new_env);
+		free(new_env);
 	}
 	return (0);
 }
@@ -84,8 +92,11 @@ int _set_env(char *key, char *value, int overwrite)
  */
 int _unset_env(char *key)
 {
-	int env_indx = search_for_env(key);
+	int env_indx = 0;
 
+	if (key == NULL)
+		return (-1);
+	env_indx = search_for_env(key);
 	if (environ[env_indx])
 	{
 		_strtok(environ[env_indx], "=");
