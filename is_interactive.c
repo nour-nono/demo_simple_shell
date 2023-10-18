@@ -10,7 +10,7 @@
 void is_interactive(char *program_name)
 {
 	char *prompt = "$ ";
-	int i = 1;
+	int i = 1, status = 0;
 
 	while (1)
 	{
@@ -23,18 +23,19 @@ void is_interactive(char *program_name)
 		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
-			exec_command(arr[0], arr);
+			exec_command(arr[0], arr, &status);
 		else
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
-				show_error(program_name, i, buff, "not found\n");
+				show_error(program_name, i, command, "not found\n");
 			else
-				exec_command(command, arr);
+				exec_command(command, arr, &status);
 		}
 		free(buff);
 		free(command);
 		free_array(arr);
 		++i;
 	}
+	is_exit(NULL, status);
 }

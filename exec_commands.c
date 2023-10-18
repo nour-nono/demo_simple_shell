@@ -42,16 +42,20 @@ char *search_for_command_in_paths(char *command)
  *
  * Return: string.
  */
-void exec_command(char *command, char **command_and_argu)
+void exec_command(char *command, char **command_and_argu, int *status)
 {
 	pid_t child_id = fork();
 
-	if (child_id == 0)
+	if (child_id == -1)
+		perror("");
+	else if (child_id == 0)
 	{
-		execve(command, command_and_argu, NULL);
+		if (execve(command, command_and_argu, NULL) == -1)
+			perror("");
 	}
 	else if (child_id > 0)
 	{
-		wait(NULL);
+		if(wait(status) == -1)
+			perror("");
 	}
 }

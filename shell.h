@@ -47,14 +47,14 @@ int _unset_env(char *key);
 
 /*exec_commands*/
 char *search_for_command_in_paths(char *command);
-void exec_command(char *command, char **command_and_argu);
+void exec_command(char *command, char **command_and_argu, int *status);
 
 /*free_array*/
 void free_array(char **arr);
 
 /*implemented funcs*/
 void remove_comment(char *str);
-void is_exit(char **arr);
+void is_exit(char **arr, int status);
 
 /*get_line*/
 ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1);
