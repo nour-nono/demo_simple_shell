@@ -47,8 +47,7 @@ char *_get_env(const char *name)
 
 /**
  * _set_env - copy string in heap
- * @key: string
- * @value: string
+ * @arr: string
  * @overwrite: string
  *
  * Return: string.

@@ -63,7 +63,7 @@ ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1);
 /*show_error*/
 int _pow(int a, int b);
 void int_to_string(char *arr, int zz);
-void show_error(char *program_name,int i,char *command, char *err);
+void show_error(char *program_name, int i, char *command, char *err);
 
 /*replace_var*/
 char **replace_var(char **arr, int status);
@@ -72,7 +72,7 @@ char *change_to_pid(char *arr_str);
 char *change_to_env_var(char *arr_str);
 
 /*search_in_implemented_functions*/
-int search_in_implemented_functions(char **arr, int *status,int i,char *program_name);
+int search_in_implemented_functions(char **arr, int *status, int i, char *program_name);
 
 #endif
 

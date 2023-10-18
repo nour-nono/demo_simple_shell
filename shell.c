@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * main - check the code
+ *
+ * @argc: bla bla
+ * @argv: bla bla
+ *
+ * Return: Always 0.
+ */
 int main(int argc, char **argv)
 {
 	if (argc > 1)

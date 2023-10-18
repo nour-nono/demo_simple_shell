@@ -2,7 +2,8 @@
 
 /**
  * is_file - Entry point
- *
+ * @program_name: str
+ * @filename: str
  * Description: this program prints "_putchar"
  *
  * Return: Always 0 (Success)
@@ -25,8 +26,7 @@ void is_file(char *program_name, char *filename)
 	while (get_line(&buff, &sz, fd, 0) != -1)
 	{
 		remove_comment(buff);
-		arr = make_arr_of_str(buff, " \n\t");
-		arr = replace_var(arr, status);
+		arr = make_arr_of_str(buff, " \n\t"), arr = replace_var(arr, status);
 		free(buff);
 		if (search_in_implemented_functions(arr, &status, i, program_name))
 		{

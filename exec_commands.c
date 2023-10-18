@@ -39,7 +39,7 @@ char *search_for_command_in_paths(char *command)
  * exec_command - copy string in heap
  * @command: string
  * @command_and_argu: string
- *
+ * @status: string
  * Return: string.
  */
 void exec_command(char *command, char **command_and_argu, int *status)
@@ -58,7 +58,7 @@ void exec_command(char *command, char **command_and_argu, int *status)
 	}
 	else if (child_id > 0)
 	{
-		if(wait(status) == -1)
+		if (wait(status) == -1)
 			perror("");
 	}
 }

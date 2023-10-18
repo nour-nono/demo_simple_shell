@@ -23,7 +23,9 @@ void print_env(void)
  * is_exit - out if is exit
  *
  * @arr: is a pointer
- *
+ * @status: is a pointer
+ * @i: is a pointer
+ * @program_name: is a pointer
  * Description: this program prints "_putchar"
  *
  * Return: nothing

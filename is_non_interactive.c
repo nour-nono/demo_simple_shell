@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- *  is_non_interactive - Entry point
+ * is_non_interactive - Entry point
  *
- * Description: this program prints "_putchar"
+ * @program_name: this program prints "_putchar"
  *
  * Return: Always 0 (Success)
  */
