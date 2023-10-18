@@ -10,13 +10,17 @@
 void is_file(char *program_name, char *filename)
 {
 	int fd = open(filename, O_RDONLY), i = 1;
-	char *buff = NULL, *command = NULL, **arr = NULL;
+	char *buff = NULL, *command = NULL, **arr = NULL, *error = NULL;
 	size_t sz = 0;
 
-	if (fd == -1)
+	if(fd == -1)
 	{
-		perror("");
-		exit(127);
+		error = malloc(sizeof(char) * 1024);
+		_strcpy(error, "cannot open ");
+		_strcat(error, filename);
+		show_error(program_name, 0, error, "No such file\n");
+		free(error);
+		exit(2);
 	}
 	while (get_line(&buff, &sz, fd, 0) != -1)
 	{
@@ -28,7 +32,7 @@ void is_file(char *program_name, char *filename)
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
-				show_error(program_name, i, buff);
+				show_error(program_name, i, buff, "not found\n");
 			else
 				exec_command(command, arr);
 		}

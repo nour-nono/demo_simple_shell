@@ -28,7 +28,7 @@ void is_interactive(char *program_name)
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
-				show_error(program_name, i, buff);
+				show_error(program_name, i, buff, "not found\n");
 			else
 				exec_command(command, arr);
 		}

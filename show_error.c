@@ -56,9 +56,11 @@ void int_to_string(char arr[], int zz)
  * @program_name : the number to be printed
  * @i : the number to be printed
  * @buff : the number to be printed
+ * @err : the number to be printed
+ *
  * Return: Nothing
  */
-void show_error(char *program_name, int i, char *buff)
+void show_error(char *program_name,int i,char *buff, char *err)
 {
 	char *out_put = NULL, arr[11], *token = _strtok(buff, "\n");
 	int size = _strlen(program_name) + _strlen(buff) + 17;
