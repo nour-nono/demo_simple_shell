@@ -38,7 +38,7 @@ char *_get_env(const char *name)
 
 	if (!environ[env_indx])
 		return (NULL);
-	env_copy = strdup(environ[env_indx]);
+	env_copy = _strdup(environ[env_indx]);
 	_strtok(env_copy, "=");
 	env_val = _strdup(_strtok(NULL, "="));
 	free(env_copy);
@@ -68,6 +68,8 @@ int _set_env(char **arr, int overwrite)
 		if (overwrite)
 		{
 			new_env = malloc(_strlen(key) + _strlen(value) + 2);
+			if (new_env == NULL)
+				return (-1);
 			_strcpy(new_env, key), _strcat(new_env, "="), _strcat(new_env, value);
 			_strcpy(environ[env_indx], new_env);
 			free(new_env);
@@ -76,6 +78,8 @@ int _set_env(char **arr, int overwrite)
 	else
 	{
 		new_env = malloc(_strlen(key) + _strlen(value) + 2);
+		if (new_env == NULL)
+			return (-1);
 		_strcpy(new_env, key), _strcat(new_env, "="), _strcat(new_env, value);
 		_strcpy(environ[env_indx], new_env);
 		free(new_env);

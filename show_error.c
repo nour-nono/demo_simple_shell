@@ -68,7 +68,7 @@ void show_error(char *program_name, int i, char *command, char *err)
 	arr = (char *)malloc(sizeof(char) * 16);
 	if (arr == NULL)
 	{
-		/* code */
+		return;
 	}
 	int_to_string(arr, i);
 	size += _strlen(arr) + _strlen(err);

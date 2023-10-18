@@ -105,9 +105,7 @@ char *change_to_env_var(char *arr_str)
 
 	the_rest_of_str = (char *)malloc(sizeof(char) * 512);
 	if (the_rest_of_str == NULL)
-	{
-		/* code */
-	}
+		return (arr_str);
 	while (arr_str[i] != '\0')
 		the_rest_of_str[j++] = arr_str[i++];
 	the_rest_of_str[j] = '\0';

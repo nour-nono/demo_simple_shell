@@ -16,6 +16,8 @@ char *search_for_command_in_paths(char *command)
 	while (all_paths[i])
 	{
 		search_in_this_path = malloc(_strlen(all_paths[i]) + _strlen(command) + 2);
+		if (search_in_this_path == NULL)
+			return (NULL);
 		_strcpy(search_in_this_path, all_paths[i]);
 		_strcat(search_in_this_path, "/");
 		_strcat(search_in_this_path, command);

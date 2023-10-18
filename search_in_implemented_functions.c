@@ -26,7 +26,7 @@ int search_in_implemented(char **arr, int *status, int i, char *program_name)
 	else if (_strcmp(arr[0], "env") == 1)
 	{
 		print_env();
-	flag = 0;
+		flag = 0;
 	}
 	else if (_strcmp(arr[0], "setenv") == 1)
 	{

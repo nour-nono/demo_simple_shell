@@ -49,6 +49,8 @@ void is_exit(char **arr, int status, int i, char *program_name)
 	else
 	{
 		error = malloc(sizeof(char) * 1024);
+		if (error == NULL)
+			exit(2);
 		_strcpy(error, "Illegal number");
 		_strcat(error, ": ");
 		_strcat(error, arr[1]);
