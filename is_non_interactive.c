@@ -23,7 +23,10 @@ void is_non_interactive(char *program_name)
 		{
 			command = search_for_command_in_paths(arr[0]);
 			if (!command)
+			{
 				show_error(program_name, i, arr[0], "not found\n");
+				status = 127;
+			}
 			else
 				exec_command(command, arr, &status);
 		}
