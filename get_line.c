@@ -25,8 +25,7 @@ ssize_t get_line(char **lineptr, size_t *n, int fd, int flag1)
 		perror("");
 		return (-1);
 	}
-	else if (sz > 0)
-		buffer[sz] = '\0';
+	buffer[sz] = '\0';
 	if (!(*lineptr))
 		(*lineptr) = malloc(sizeof(char) * 1024);
 	while (buffer[i] != '\0' && buffer[i] != '\n' && j < 1024)
