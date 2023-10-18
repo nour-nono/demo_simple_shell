@@ -1,6 +1,6 @@
 #include "shell.h"
 
-void replace_var(char **arr, int status)
+char **replace_var(char **arr, int status)
 {
     int i = 0;
     while (arr[i] != NULL)
@@ -8,16 +8,18 @@ void replace_var(char **arr, int status)
         if (arr[i][0] == '$' && arr[i][1] != '\0')
         {
             if (arr[i][1] == '?')
-                change_to_status(arr[i], status);
+                arr[i] = change_to_status(arr[i], status);
             else if (arr[i][1] == '$')
-                change_to_pid(arr[i]);
+                arr[i] = change_to_pid(arr[i]);
             else
-                change_to_env_var(arr[i]);
+                arr[i] = change_to_env_var(arr[i]);
         }
         ++i;
     }
+    return arr;
 }
-void change_to_status(char *arr_str, int status)
+
+char *change_to_status(char *arr_str, int status)
 {
     int i = 2, j = 0;
     size_t sz = 0;
@@ -39,8 +41,9 @@ void change_to_status(char *arr_str, int status)
     _strcat(arr_str, the_rest_of_str);
     free(status_str);
     free(the_rest_of_str);
+    return (arr_str);
 }
-void change_to_pid(char *arr_str)
+char *change_to_pid(char *arr_str)
 {
     int i = 2, j = 0, pid_num = getpid();
     size_t sz = 0;
@@ -62,8 +65,9 @@ void change_to_pid(char *arr_str)
     _strcat(arr_str, the_rest_of_str);
     free(pid_str);
     free(the_rest_of_str);
+    return (arr_str);
 }
-void change_to_env_var(char *arr_str)
+char *change_to_env_var(char *arr_str)
 {
     int i = 1, j = 0;
     size_t sz = 0;
@@ -83,11 +87,12 @@ void change_to_env_var(char *arr_str)
         free(the_rest_of_str);
         arr_str = realloc(arr_str, 1);
         arr_str[0] = '\0';
-        return;
+        return (arr_str);
     }
     sz = _strlen(env_str) + 1;
     arr_str = realloc(arr_str, sz);
     _strcpy(arr_str, env_str);
     free(env_str);
     free(the_rest_of_str);
+    return (arr_str);
 }

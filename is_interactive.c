@@ -22,6 +22,7 @@ void is_interactive(char *program_name)
 			free(buff), exit(0);
 		remove_comment(buff);
 		arr = make_arr_of_str(buff, " \n\t");
+		arr = replace_var(arr, status);
 		if (arr[0] && access(arr[0], F_OK | X_OK) == 0)
 			exec_command(arr[0], arr, &status);
 		else

@@ -65,10 +65,10 @@ void int_to_string(char *arr, int zz);
 void show_error(char *program_name,int i,char *buff, char *err);
 
 /*replace_var*/
-void replace_var(char **arr, int status);
-void change_to_status(char *arr_str, int status);
-void change_to_pid(char *arr_str);
-void change_to_env_var(char *arr_str);
+char **replace_var(char **arr, int status);
+char *change_to_status(char *arr_str, int status);
+char *change_to_pid(char *arr_str);
+char *change_to_env_var(char *arr_str);
 
 
 #endif
